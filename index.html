@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificat SYSCOHADA – Global Expert</title>
+  <style>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f5f8fc 0%,#eef3f9 100%);color:#1e293b;line-height:1.6}
+    a{color:inherit}
+    .hero{background:linear-gradient(135deg,#0a4ea1 0%,#0b6b8f 100%);color:#fff;padding:56px 20px 42px}
+    .wrap{max-width:1100px;margin:0 auto}
+    .eyebrow{display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);font-size:13px;font-weight:600;letter-spacing:.2px}
+    h1{margin:18px 0 12px;font-size:clamp(30px,5vw,54px);line-height:1.08}
+    .hero p{max-width:760px;margin:0;font-size:clamp(16px,2.2vw,19px);opacity:.96}
+    .hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:24px;align-items:center}
+    .hero-card{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:22px;box-shadow:0 16px 40px rgba(0,0,0,.12)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;text-decoration:none;font-weight:700;transition:.2s ease;border:1px solid transparent;min-height:48px}
+    .btn-primary{background:#fff;color:#0a4ea1}
+    .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+    .btn:hover{transform:translateY(-1px)}
+    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+    .count-item{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px 10px;text-align:center}
+    .count-item strong{display:block;font-size:clamp(24px,4vw,34px);line-height:1;font-weight:800}
+    .count-item span{display:block;margin-top:6px;font-size:13px;opacity:.9}
+    .main{padding:30px 20px 60px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
+    .card{grid-column:span 12;background:#fff;border:1px solid #e5edf5;border-radius:22px;padding:24px;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+    .card h2{margin:0 0 10px;font-size:24px;color:#0f172a}
+    .muted{color:#475569}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:#eff6ff;color:#0a4ea1;font-size:13px;font-weight:700;border:1px solid #dbeafe}
+    .accent{background:#ecfeff;color:#0b6b8f;border-color:#cffafe}
+    .warn{background:#fff8e8;color:#8a5a00;border-color:#fde7a7}
+    .info-box{margin-top:16px;padding:16px 18px;border-radius:16px;background:#f8fbff;border-left:4px solid #0a4ea1}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mini{padding:18px;border-radius:18px;background:#f8fafc;border:1px solid #e8eef5}
+    .mini h3{margin:0 0 8px;font-size:18px}
+    .list{margin:0;padding-left:18px}
+    .list li{margin-bottom:8px}
+    .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:18px}
+    .day-head,.day-cell{border-radius:16px;padding:12px}
+    .day-head{background:#eaf2ff;color:#0a4ea1;text-align:center;font-weight:700;font-size:14px;border:1px solid #d8e7ff}
+    .day-cell{background:#fff;border:1px solid #e5edf5;min-height:132px;display:flex;flex-direction:column;gap:8px}
+    .day-num{font-weight:800;color:#0f172a;font-size:16px}
+    .event{display:inline-block;padding:8px 10px;border-radius:12px;font-size:12px;font-weight:700;background:#eff6ff;color:#0a4ea1;border:1px solid #dbeafe}
+    .event.sat{background:#ecfeff;color:#0b6b8f;border-color:#cffafe}
+    .event.off{background:#f8fafc;color:#64748b;border-color:#e2e8f0}
+    .zoom-box{background:linear-gradient(135deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #dbeafe;border-radius:20px;padding:18px;margin-top:14px}
+    .zoom-box p{margin:6px 0}
+    .footer{padding:0 20px 50px}
+    .footer-card{max-width:1100px;margin:0 auto;background:#0f172a;color:#fff;border-radius:24px;padding:26px 24px}
+    .footer-card p{margin:6px 0;color:rgba(255,255,255,.84)}
+    .small{font-size:14px}
+    @media (min-width: 860px){
+      .card.span-7{grid-column:span 7}
+      .card.span-5{grid-column:span 5}
+      .card.span-6{grid-column:span 6}
+    }
+    @media (max-width: 859px){
+      .hero-grid,.two-col{grid-template-columns:1fr}
+      .calendar-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 560px){
+      .hero{padding:42px 16px 30px}
+      .main{padding:22px 16px 40px}
+      .footer{padding:0 16px 30px}
+      .card{padding:18px;border-radius:18px}
+      .calendar-grid{grid-template-columns:1fr}
+      .countdown{grid-template-columns:repeat(2,1fr)}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Cabinet Global Expert</span>
+        <h1>Certificat de Spécialisation SYSCOHADA</h1>
+        <p>Plateforme d’accueil des participants pour le parcours <strong>Comptes individuels</strong> : accès Zoom, Classroom, calendrier illustré, test webcam et consignes pratiques pour bien suivre les sessions.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://us02web.zoom.us/j/83708515097?pwd=wQdNwnHrjbxHdX32wKhyt5unnPuXhd.1" target="_blank" rel="noopener noreferrer">Accéder à Zoom</a>
+          <a class="btn btn-secondary" href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Accéder à Classroom</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="small" style="opacity:.9;font-weight:700;letter-spacing:.2px;">Compte à rebours avant la prochaine session</div>
+        <div id="countdown" class="countdown" aria-live="polite">
+          <div class="count-item"><strong id="days">--</strong><span>Jours</span></div>
+          <div class="count-item"><strong id="hours">--</strong><span>Heures</span></div>
+          <div class="count-item"><strong id="minutes">--</strong><span>Minutes</span></div>
+          <div class="count-item"><strong id="seconds">--</strong><span>Secondes</span></div>
+        </div>
+        <div class="badge-row">
+          <span class="badge">Lun–Ven : 17h00–21h00</span>
+          <span class="badge accent">Samedi : 09h00–17h00</span>
+          <span class="badge warn">Compte Gmail non saturé requis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="wrap grid">
+      <section class="card span-7">
+        <h2>Accès rapide</h2>
+        <p class="muted">Retrouvez ici les liens essentiels pour suivre correctement la formation.</p>
+
+        <div class="zoom-box">
+          <h3 style="margin:0 0 10px;font-size:19px;color:#0a4ea1;">Salle Zoom officielle</h3>
+          <p><strong>Lien :</strong> <a href="https://us02web.zoom.us/j/83708515097?pwd=wQdNwnHrjbxHdX32wKhyt5unnPuXhd.1" target="_blank" rel="noopener noreferrer">Participer à la réunion Zoom</a></p>
+          <p><strong>ID de réunion :</strong> 837 0851 5097</p>
+          <p><strong>Code secret :</strong> 529304</p>
+        </div>
+
+        <div class="info-box">
+          <strong>Important – Classroom :</strong><br>
+          L’espace Classroom vous permettra notamment de <strong>déposer vos travaux finaux</strong> et de suivre certaines consignes de la formation.
+        </div>
+
+        <div class="actions" style="margin-top:18px;">
+          <a class="btn btn-primary" href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Ouvrir Classroom</a>
+          <a class="btn" style="background:#0f172a;color:#fff;" href="https://oscarkakpo-create.github.io/ifrs-guide/" target="_blank" rel="noopener noreferrer">Tester ma webcam</a>
+        </div>
+      </section>
+
+      <section class="card span-5">
+        <h2>Prérequis techniques</h2>
+        <div class="mini">
+          <h3>Compte Gmail obligatoire</h3>
+          <p class="muted">Utilisez impérativement un <strong>compte Gmail actif avec espace disponible</strong>. Un compte saturé peut empêcher l’accès à Classroom et bloquer le dépôt des travaux.</p>
+        </div>
+        <div class="mini" style="margin-top:14px;">
+          <h3>Avant chaque séance</h3>
+          <ul class="list">
+            <li>Vérifier la connexion internet</li>
+            <li>Tester caméra et micro</li>
+            <li>Se connecter 5 minutes avant</li>
+            <li>Prévoir un environnement calme</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card span-12">
+        <h2>Calendrier illustré des rencontres</h2>
+        <p class="muted">Organisation des séances sur la période du <strong>10 au 21 avril 2026</strong>.</p>
+        <div class="calendar-grid" role="table" aria-label="Calendrier des rencontres">
+          <div class="day-head">Lundi</div>
+          <div class="day-head">Mardi</div>
+          <div class="day-head">Mercredi</div>
+          <div class="day-head">Jeudi</div>
+          <div class="day-head">Vendredi</div>
+          <div class="day-head">Samedi</div>
+          <div class="day-head">Dimanche</div>
+
+          <div class="day-cell"><div class="day-num">6</div><span class="event off">Hors période</span></div>
+          <div class="day-cell"><div class="day-num">7</div><span class="event off">Hors période</span></div>
+          <div class="day-cell"><div class="day-num">8</div><span class="event off">Hors période</span></div>
+          <div class="day-cell"><div class="day-num">9</div><span class="event off">Hors période</span></div>
+          <div class="day-cell"><div class="day-num">10</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">11</div><span class="event sat">09h00 – 17h00</span></div>
+          <div class="day-cell"><div class="day-num">12</div><span class="event off">Pas de séance</span></div>
+
+          <div class="day-cell"><div class="day-num">13</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">14</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">15</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">16</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">17</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">18</div><span class="event sat">09h00 – 17h00</span></div>
+          <div class="day-cell"><div class="day-num">19</div><span class="event off">Pas de séance</span></div>
+
+          <div class="day-cell"><div class="day-num">20</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">21</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">22</div><span class="event off">Fin de période</span></div>
+          <div class="day-cell"><div class="day-num">23</div><span class="event off">Fin de période</span></div>
+          <div class="day-cell"><div class="day-num">24</div><span class="event off">Fin de période</span></div>
+          <div class="day-cell"><div class="day-num">25</div><span class="event off">Fin de période</span></div>
+          <div class="day-cell"><div class="day-num">26</div><span class="event off">Fin de période</span></div>
+        </div>
+      </section>
+
+      <section class="card span-6">
+        <h2>Conseils pour la bonne tenue des sessions</h2>
+        <ul class="list">
+          <li>Couper le micro lorsque vous ne prenez pas la parole</li>
+          <li>Utiliser un nom complet identifiable sur Zoom</li>
+          <li>Éviter les environnements bruyants</li>
+          <li>Préparer vos supports et documents avant la séance</li>
+          <li>Signaler rapidement toute difficulté technique</li>
+        </ul>
+      </section>
+
+      <section class="card span-6">
+        <h2>Utilité de Classroom</h2>
+        <ul class="list">
+          <li>Accès aux consignes complémentaires</li>
+          <li>Dépôt des travaux finaux dans l’espace dédié</li>
+          <li>Centralisation des ressources utiles</li>
+          <li>Suivi plus simple de votre progression</li>
+        </ul>
+        <div class="info-box">
+          Une session d’accompagnement sera organisée pour faciliter la prise en main de l’espace Classroom.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-card">
+      <h3 style="margin:0 0 8px;">Cabinet Global Expert</h3>
+      <p>Support digital et accompagnement des participants au Certificat de Spécialisation SYSCOHADA – Comptes individuels.</p>
+      <p class="small">Veillez à conserver vos accès Zoom et Classroom pendant toute la durée de la formation.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const nextTargets = [
+        new Date('2026-04-10T17:00:00'),
+        new Date('2026-04-11T09:00:00'),
+        new Date('2026-04-13T17:00:00'),
+        new Date('2026-04-14T17:00:00'),
+        new Date('2026-04-15T17:00:00'),
+        new Date('2026-04-16T17:00:00'),
+        new Date('2026-04-17T17:00:00'),
+        new Date('2026-04-18T09:00:00'),
+        new Date('2026-04-20T17:00:00'),
+        new Date('2026-04-21T17:00:00')
+      ];
+
+      function getNextTarget(){
+        const now = new Date();
+        for(const target of nextTargets){
+          if(target.getTime() > now.getTime()) return target;
+        }
+        return null;
+      }
+
+      function updateCountdown(){
+        const target = getNextTarget();
+        const d = document.getElementById('days');
+        const h = document.getElementById('hours');
+        const m = document.getElementById('minutes');
+        const s = document.getElementById('seconds');
+        if(!target){
+          d.textContent='00'; h.textContent='00'; m.textContent='00'; s.textContent='00';
+          return;
+        }
+        const now = new Date().getTime();
+        const distance = target.getTime() - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        d.textContent = String(days).padStart(2,'0');
+        h.textContent = String(hours).padStart(2,'0');
+        m.textContent = String(minutes).padStart(2,'0');
+        s.textContent = String(seconds).padStart(2,'0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+<div class="container">
+<div class="card">
+<h2>Support technique</h2>
+<p>Pour toute difficulté technique (accès, dépôt, connexion), vous pouvez contacter le support :</p>
+<ul>
+<li>Email : <strong>oscarkakpo@gmail.com</strong></li>
+</ul>
+<p>Merci de préciser votre nom, prénom et le problème rencontré pour un traitement rapide.</p>
+</div>
+</div>
+
+</body>
+</html>
