@@ -7,66 +7,113 @@
   <style>
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f5f8fc 0%,#eef3f9 100%);color:#1e293b;line-height:1.6}
+    body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f6f8fb 0%,#edf2f7 100%);color:#1f2937;line-height:1.6}
     a{color:inherit}
-    .hero{background:linear-gradient(135deg,#0a4ea1 0%,#0b6b8f 100%);color:#fff;padding:56px 20px 42px}
-    .wrap{max-width:1100px;margin:0 auto}
-    .eyebrow{display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);font-size:13px;font-weight:600;letter-spacing:.2px}
-    h1{margin:18px 0 12px;font-size:clamp(30px,5vw,54px);line-height:1.08}
-    .hero p{max-width:760px;margin:0;font-size:clamp(16px,2.2vw,19px);opacity:.96}
-    .hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:24px;align-items:center}
-    .hero-card{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:24px;padding:22px;box-shadow:0 16px 40px rgba(0,0,0,.12)}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border-radius:14px;text-decoration:none;font-weight:700;transition:.2s ease;border:1px solid transparent;min-height:48px}
-    .btn-primary{background:#fff;color:#0a4ea1}
-    .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+
+    :root{
+      --zoom:#1d4ed8;
+      --classroom:#15803d;
+      --amber:#b45309;
+      --neutral:#334155;
+    }
+
+    .hero{background:linear-gradient(135deg,#0f3d91 0%,#166534 100%);color:#fff;padding:52px 20px 40px}
+    .wrap{max-width:1120px;margin:0 auto}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:24px;align-items:center}
+    .eyebrow{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);font-size:13px;font-weight:700}
+    h1{margin:14px 0 10px;font-size:clamp(30px,5vw,52px);line-height:1.08}
+    .hero p{margin:0;max-width:760px;opacity:.96;font-size:clamp(16px,2vw,19px)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:14px;text-decoration:none;font-weight:700;border:1px solid transparent;transition:.2s ease;min-height:48px}
     .btn:hover{transform:translateY(-1px)}
-    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-    .count-item{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px 10px;text-align:center}
-    .count-item strong{display:block;font-size:clamp(24px,4vw,34px);line-height:1;font-weight:800}
-    .count-item span{display:block;margin-top:6px;font-size:13px;opacity:.9}
+    .btn-zoom{background:#e8efff;color:#0f3d91;border-color:#bcd0ff}
+    .btn-classroom{background:#dcfce7;color:#14532d;border-color:#86efac}
+    .btn-dark{background:#0f172a;color:#fff}
+    .btn-download{background:#f1f5f9;color:#0f172a;border-color:#dbe4ee}
+
+    .hero-card{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22);border-radius:24px;padding:20px;box-shadow:0 18px 36px rgba(0,0,0,.16)}
+    .small-title{font-size:13px;font-weight:800;letter-spacing:.2px;opacity:.95}
+    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+    .count-item{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:12px 8px;text-align:center}
+    .count-item strong{display:block;font-size:clamp(22px,4vw,30px);line-height:1}
+    .count-item span{font-size:12px;opacity:.92}
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .badge{padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid}
+    .badge.zoom{background:#dbeafe;color:#1e3a8a;border-color:#bfdbfe}
+    .badge.classroom{background:#dcfce7;color:#166534;border-color:#86efac}
+    .badge.warn{background:#fff7ed;color:#9a3412;border-color:#fdba74}
+
     .main{padding:30px 20px 60px}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:22px}
-    .card{grid-column:span 12;background:#fff;border:1px solid #e5edf5;border-radius:22px;padding:24px;box-shadow:0 10px 28px rgba(15,23,42,.06)}
+    .card{grid-column:span 12;background:#fff;border:1px solid #e3eaf2;border-radius:22px;padding:24px;box-shadow:0 10px 24px rgba(15,23,42,.05)}
     .card h2{margin:0 0 10px;font-size:24px;color:#0f172a}
     .muted{color:#475569}
-    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .badge{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:#eff6ff;color:#0a4ea1;font-size:13px;font-weight:700;border:1px solid #dbeafe}
-    .accent{background:#ecfeff;color:#0b6b8f;border-color:#cffafe}
-    .warn{background:#fff8e8;color:#8a5a00;border-color:#fde7a7}
-    .info-box{margin-top:16px;padding:16px 18px;border-radius:16px;background:#f8fbff;border-left:4px solid #0a4ea1}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .mini{padding:18px;border-radius:18px;background:#f8fafc;border:1px solid #e8eef5}
+
+    .zoom-box{background:linear-gradient(135deg,#eff6ff 0%,#dbeafe 100%);border:1px solid #bfdbfe;border-radius:18px;padding:16px;margin-top:14px}
+    .classroom-box{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%);border:1px solid #86efac;border-radius:18px;padding:16px;margin-top:14px}
+    .info-box{margin-top:14px;padding:14px 16px;border-radius:14px;background:#fff7ed;border-left:4px solid #f59e0b}
+
+    .mini{padding:16px;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0}
     .mini h3{margin:0 0 8px;font-size:18px}
     .list{margin:0;padding-left:18px}
     .list li{margin-bottom:8px}
-    .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:18px}
-    .day-head,.day-cell{border-radius:16px;padding:12px}
-    .day-head{background:#eaf2ff;color:#0a4ea1;text-align:center;font-weight:700;font-size:14px;border:1px solid #d8e7ff}
-    .day-cell{background:#fff;border:1px solid #e5edf5;min-height:132px;display:flex;flex-direction:column;gap:8px}
-    .day-num{font-weight:800;color:#0f172a;font-size:16px}
-    .event{display:inline-block;padding:8px 10px;border-radius:12px;font-size:12px;font-weight:700;background:#eff6ff;color:#0a4ea1;border:1px solid #dbeafe}
-    .event.sat{background:#ecfeff;color:#0b6b8f;border-color:#cffafe}
+
+    .section-intro{margin-top:0}
+    .subject-sim{margin-top:14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:16px}
+
+    .exam-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
+    .exam-card{grid-column:span 12;background:#f8fafc;border:1px solid #dbe3ee;border-radius:18px;padding:18px;position:relative;transition:transform .2s ease, box-shadow .2s ease}
+    .exam-card:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(15,23,42,.08)}
+    .step-badge{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;background:#e2e8f0;color:#0f172a}
+    .icon-circle{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;border:1px solid}
+    .zoom-tone .icon-circle{background:#dbeafe;border-color:#bfdbfe}
+    .classroom-tone{background:#f0fdf4;border-color:#86efac}
+    .classroom-tone h3{color:#166534}
+    .classroom-tone .icon-circle{background:#dcfce7;border-color:#86efac}
+    .warning-tone{background:#fff7ed;border-color:#fdba74}
+    .warning-tone h3{color:#9a3412}
+    .critical-tone{background:#fff7ed;border-color:#fbbf24}
+    .critical-tone .step-badge{background:#f59e0b;color:#fff}
+
+    .pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .pill.ok{background:#dcfce7;color:#166534}
+
+    .webcam-module{margin-top:14px;background:#f8fafc;border:1px solid #dbe3ee;border-radius:16px;padding:16px}
+    .webcam-module video{width:100%;max-height:250px;background:#0f172a;border-radius:12px;border:1px solid #1e293b}
+    .webcam-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .status{font-weight:700;margin-top:10px}
+
+    .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:16px}
+    .day-head,.day-cell{border-radius:14px;padding:10px}
+    .day-head{background:#eef2ff;color:#1e3a8a;text-align:center;font-size:14px;font-weight:700;border:1px solid #c7d2fe}
+    .day-cell{background:#fff;border:1px solid #e2e8f0;min-height:112px;display:flex;flex-direction:column;gap:8px}
+    .day-num{font-weight:800}
+    .event{display:inline-block;padding:7px 9px;border-radius:10px;font-size:12px;font-weight:700;border:1px solid}
+    .event.zoom{background:#dbeafe;color:#1e3a8a;border-color:#bfdbfe}
+    .event.sat{background:#dcfce7;color:#166534;border-color:#86efac}
     .event.off{background:#f8fafc;color:#64748b;border-color:#e2e8f0}
-    .zoom-box{background:linear-gradient(135deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #dbeafe;border-radius:20px;padding:18px;margin-top:14px}
-    .zoom-box p{margin:6px 0}
-    .footer{padding:0 20px 50px}
-    .footer-card{max-width:1100px;margin:0 auto;background:#0f172a;color:#fff;border-radius:24px;padding:26px 24px}
-    .footer-card p{margin:6px 0;color:rgba(255,255,255,.84)}
-    .small{font-size:14px}
-    @media (min-width: 860px){
+
+    .footer{padding:0 20px 48px}
+    .footer-card{max-width:1120px;margin:0 auto;background:#0f172a;color:#fff;border-radius:24px;padding:24px}
+    .footer-card p{margin:6px 0;color:rgba(255,255,255,.86)}
+
+    @media (min-width:860px){
       .card.span-7{grid-column:span 7}
       .card.span-5{grid-column:span 5}
       .card.span-6{grid-column:span 6}
+      .exam-card.span-4{grid-column:span 4}
+      .exam-card.span-6{grid-column:span 6}
+      .exam-card.span-12{grid-column:span 12}
     }
-    @media (max-width: 859px){
-      .hero-grid,.two-col{grid-template-columns:1fr}
+    @media (max-width:859px){
+      .hero-grid{grid-template-columns:1fr}
       .calendar-grid{grid-template-columns:repeat(2,1fr)}
     }
-    @media (max-width: 560px){
-      .hero{padding:42px 16px 30px}
+    @media (max-width:560px){
+      .hero{padding:40px 16px 30px}
       .main{padding:22px 16px 40px}
-      .footer{padding:0 16px 30px}
+      .footer{padding:0 16px 28px}
       .card{padding:18px;border-radius:18px}
       .calendar-grid{grid-template-columns:1fr}
       .countdown{grid-template-columns:repeat(2,1fr)}
@@ -80,24 +127,34 @@
       <div>
         <span class="eyebrow">Cabinet Global Expert</span>
         <h1>Certificat de Spécialisation SYSCOHADA</h1>
-        <p>Plateforme d’accueil des participants pour le parcours <strong>Comptes individuels</strong> : accès Zoom, Classroom, calendrier illustré, test webcam et consignes pratiques pour bien suivre les sessions.</p>
+        <p>Plateforme d’accueil des participants pour le parcours <strong>Comptes individuels</strong> : accès Zoom, Classroom, calendrier illustré, test webcam et consignes pratiques.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://us02web.zoom.us/j/83708515097?pwd=wQdNwnHrjbxHdX32wKhyt5unnPuXhd.1" target="_blank" rel="noopener noreferrer">Accéder à Zoom</a>
-          <a class="btn btn-secondary" href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Accéder à Classroom</a>
+          <a class="btn btn-zoom" href="https://us02web.zoom.us/j/83708515097?pwd=wQdNwnHrjbxHdX32wKhyt5unnPuXhd.1" target="_blank" rel="noopener noreferrer">Accéder à Zoom</a>
+          <a class="btn btn-classroom" href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Accéder à Classroom</a>
         </div>
       </div>
+
       <div class="hero-card">
-        <div class="small" style="opacity:.9;font-weight:700;letter-spacing:.2px;">Compte à rebours avant la prochaine session</div>
-        <div id="countdown" class="countdown" aria-live="polite">
+        <div class="small-title">Compte à rebours avant l’examen final de certification</div>
+        <div id="exam-countdown" class="countdown" aria-live="polite">
+          <div class="count-item"><strong id="exam-days">--</strong><span>Jours</span></div>
+          <div class="count-item"><strong id="exam-hours">--</strong><span>Heures</span></div>
+          <div class="count-item"><strong id="exam-minutes">--</strong><span>Minutes</span></div>
+          <div class="count-item"><strong id="exam-seconds">--</strong><span>Secondes</span></div>
+        </div>
+
+        <div class="small-title" style="margin-top:14px;">Compte à rebours avant la prochaine session (secondaire)</div>
+        <div id="session-countdown" class="countdown" aria-live="polite">
           <div class="count-item"><strong id="days">--</strong><span>Jours</span></div>
           <div class="count-item"><strong id="hours">--</strong><span>Heures</span></div>
           <div class="count-item"><strong id="minutes">--</strong><span>Minutes</span></div>
           <div class="count-item"><strong id="seconds">--</strong><span>Secondes</span></div>
         </div>
+
         <div class="badge-row">
-          <span class="badge">Lun–Ven : 17h00–21h00</span>
-          <span class="badge accent">Samedi : 09h00–17h00</span>
-          <span class="badge warn">Compte Gmail non saturé requis</span>
+          <span class="badge zoom">Zoom = sessions live</span>
+          <span class="badge classroom">Classroom = dépôt et suivi</span>
+          <span class="badge warn">Gmail non saturé requis</span>
         </div>
       </div>
     </div>
@@ -110,37 +167,120 @@
         <p class="muted">Retrouvez ici les liens essentiels pour suivre correctement la formation.</p>
 
         <div class="zoom-box">
-          <h3 style="margin:0 0 10px;font-size:19px;color:#0a4ea1;">Salle Zoom officielle</h3>
+          <h3 style="margin:0 0 10px;font-size:19px;color:var(--zoom);">Salle Zoom officielle</h3>
           <p><strong>Lien :</strong> <a href="https://us02web.zoom.us/j/83708515097?pwd=wQdNwnHrjbxHdX32wKhyt5unnPuXhd.1" target="_blank" rel="noopener noreferrer">Participer à la réunion Zoom</a></p>
           <p><strong>ID de réunion :</strong> 837 0851 5097</p>
           <p><strong>Code secret :</strong> 529304</p>
         </div>
 
-        <div class="info-box">
-          <strong>Important – Classroom :</strong><br>
-          L’espace Classroom vous permettra notamment de <strong>déposer vos travaux finaux</strong> et de suivre certaines consignes de la formation.
+        <div class="classroom-box">
+          <h3 style="margin:0 0 10px;font-size:19px;color:var(--classroom);">Classe Google Classroom</h3>
+          <p><strong>Lien :</strong> <a href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Ouvrir la classe</a></p>
+          <p>Connectez-vous avec un compte Gmail actif et rejoignez la classe avant l’examen.</p>
         </div>
 
-        <div class="actions" style="margin-top:18px;">
-          <a class="btn btn-primary" href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Ouvrir Classroom</a>
-          <a class="btn" style="background:#0f172a;color:#fff;" href="https://oscarkakpo-create.github.io/ifrs-guide/" target="_blank" rel="noopener noreferrer">Tester ma webcam</a>
+        <div class="actions" style="margin-top:16px;">
+          <a class="btn btn-classroom" href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer">Ouvrir Classroom</a>
+          <button id="start-webcam" class="btn btn-dark" type="button">Tester ma webcam avant l’examen</button>
+        </div>
+
+        <div class="webcam-module" aria-live="polite">
+          <h3 style="margin:0 0 6px;font-size:18px;">Module de test webcam intégré</h3>
+          <p class="muted" style="margin:0 0 10px;">Autorisez la caméra, vérifiez l’aperçu, puis confirmez que tout fonctionne.</p>
+          <video id="webcam-preview" autoplay playsinline muted></video>
+          <div class="webcam-actions">
+            <button id="stop-webcam" class="btn btn-download" type="button">Arrêter la caméra</button>
+            <a class="btn btn-download" href="https://webcamtests.com/" target="_blank" rel="noopener noreferrer">Ouvrir un test externe</a>
+          </div>
+          <div id="webcam-status" class="status" style="color:#9a3412;">Caméra non démarrée.</div>
         </div>
       </section>
 
       <section class="card span-5">
         <h2>Prérequis techniques</h2>
         <div class="mini">
-          <h3>Compte Gmail obligatoire</h3>
-          <p class="muted">Utilisez impérativement un <strong>compte Gmail actif avec espace disponible</strong>. Un compte saturé peut empêcher l’accès à Classroom et bloquer le dépôt des travaux.</p>
+          <h3>📧 Compte Gmail obligatoire</h3>
+          <p class="muted">Un compte Gmail saturé peut empêcher l’accès à Classroom, l’ajout de fichiers et le dépôt du devoir.</p>
         </div>
         <div class="mini" style="margin-top:14px;">
-          <h3>Avant chaque séance</h3>
+          <h3>✅ Vérifications rapides</h3>
           <ul class="list">
-            <li>Vérifier la connexion internet</li>
-            <li>Tester caméra et micro</li>
-            <li>Se connecter 5 minutes avant</li>
-            <li>Prévoir un environnement calme</li>
+            <li>Connexion internet stable</li>
+            <li>Webcam testée avant l’épreuve</li>
+            <li>Connexion 5 minutes avant l’horaire</li>
+            <li>Environnement calme</li>
           </ul>
+        </div>
+        <div class="info-box">
+          <strong>Conseil :</strong> videz la corbeille Gmail et libérez Google Drive si votre espace est presque plein.
+        </div>
+      </section>
+
+      <section class="card span-12">
+        <h2>Guide visuel – Déroulement de l’examen et dépôt du devoir</h2>
+        <p class="muted section-intro">Un parcours simple, étape par étape, pour éviter toute erreur le jour de l’examen.</p>
+
+        <div class="subject-sim">
+          <h3 style="margin:0 0 8px;font-size:18px;">Sujet blanc – Simulation</h3>
+          <p style="margin:0 0 10px;">Ce sujet blanc est mis à disposition pour vous permettre de vous entraîner au processus réel de téléchargement, de composition et de dépôt avant l’examen final.</p>
+          <a class="btn btn-download" href="sujet-blanc-simulation.doc" download>Télécharger le sujet blanc</a>
+        </div>
+
+        <div class="exam-grid" aria-label="Parcours utilisateur de dépôt sur Classroom">
+          <article class="exam-card span-4 classroom-tone">
+            <span class="step-badge">1</span>
+            <div class="icon-circle">🏫</div>
+            <h3>Rejoindre Classroom</h3>
+            <p>Connectez-vous avec votre Gmail puis rejoignez la classe avant l’examen.</p>
+            <p><a href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer" style="font-weight:700;text-decoration:underline;">Lien Classroom</a></p>
+          </article>
+
+          <article class="exam-card span-4 zoom-tone">
+            <span class="step-badge">2</span>
+            <div class="icon-circle">⬇️</div>
+            <h3>Télécharger le sujet</h3>
+            <p>Dans « Travaux », ouvrez le devoir puis téléchargez le sujet sur votre ordinateur.</p>
+          </article>
+
+          <article class="exam-card span-4">
+            <span class="step-badge">3</span>
+            <div class="icon-circle">✍️</div>
+            <h3>Composer</h3>
+            <p>Répondez sur ordinateur (Word/PDF) ou à la main, en écriture lisible.</p>
+          </article>
+
+          <article class="exam-card span-4">
+            <span class="step-badge">4</span>
+            <div class="icon-circle">📄</div>
+            <h3>Préparer le fichier</h3>
+            <p>Privilégiez le PDF, vérifiez la lisibilité et téléversez un scan propre si manuscrit.</p>
+          </article>
+
+          <article class="exam-card span-4 critical-tone">
+            <span class="step-badge">5</span>
+            <div class="icon-circle">📤</div>
+            <h3>Déposer le devoir</h3>
+            <p>Cliquez « Ajouter ou créer », importez le fichier puis cliquez « Remettre ».</p>
+            <p class="pill ok">Vérifier absolument : statut « Remis »</p>
+            <p style="margin-top:8px;font-size:12px;color:#6b7280;">Final check: assignment status must be “Turned in”.</p>
+          </article>
+
+          <article class="exam-card span-4">
+            <span class="step-badge">6</span>
+            <div class="icon-circle">📷</div>
+            <h3>Surveillance</h3>
+            <p>Webcam obligatoire pendant l’épreuve, connexion stable et environnement calme.</p>
+          </article>
+
+          <article class="exam-card span-12 warning-tone">
+            <h3>Points de vigilance</h3>
+            <ul class="list">
+              <li>Vérifiez que votre compte Gmail a suffisamment d’espace.</li>
+              <li>N’attendez pas la dernière minute pour déposer votre fichier.</li>
+              <li>Confirmez que le devoir est bien marqué « Remis ».</li>
+              <li>Testez votre webcam avant l’examen.</li>
+            </ul>
+          </article>
         </div>
       </section>
 
@@ -148,32 +288,23 @@
         <h2>Calendrier illustré des rencontres</h2>
         <p class="muted">Organisation des séances sur la période du <strong>10 au 21 avril 2026</strong>.</p>
         <div class="calendar-grid" role="table" aria-label="Calendrier des rencontres">
-          <div class="day-head">Lundi</div>
-          <div class="day-head">Mardi</div>
-          <div class="day-head">Mercredi</div>
-          <div class="day-head">Jeudi</div>
-          <div class="day-head">Vendredi</div>
-          <div class="day-head">Samedi</div>
-          <div class="day-head">Dimanche</div>
-
+          <div class="day-head">Lundi</div><div class="day-head">Mardi</div><div class="day-head">Mercredi</div><div class="day-head">Jeudi</div><div class="day-head">Vendredi</div><div class="day-head">Samedi</div><div class="day-head">Dimanche</div>
           <div class="day-cell"><div class="day-num">6</div><span class="event off">Hors période</span></div>
           <div class="day-cell"><div class="day-num">7</div><span class="event off">Hors période</span></div>
           <div class="day-cell"><div class="day-num">8</div><span class="event off">Hors période</span></div>
           <div class="day-cell"><div class="day-num">9</div><span class="event off">Hors période</span></div>
-          <div class="day-cell"><div class="day-num">10</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">10</div><span class="event zoom">17h00 – 21h00</span></div>
           <div class="day-cell"><div class="day-num">11</div><span class="event sat">09h00 – 17h00</span></div>
           <div class="day-cell"><div class="day-num">12</div><span class="event off">Pas de séance</span></div>
-
-          <div class="day-cell"><div class="day-num">13</div><span class="event">17h00 – 21h00</span></div>
-          <div class="day-cell"><div class="day-num">14</div><span class="event">17h00 – 21h00</span></div>
-          <div class="day-cell"><div class="day-num">15</div><span class="event">17h00 – 21h00</span></div>
-          <div class="day-cell"><div class="day-num">16</div><span class="event">17h00 – 21h00</span></div>
-          <div class="day-cell"><div class="day-num">17</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">13</div><span class="event zoom">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">14</div><span class="event zoom">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">15</div><span class="event zoom">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">16</div><span class="event zoom">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">17</div><span class="event zoom">17h00 – 21h00</span></div>
           <div class="day-cell"><div class="day-num">18</div><span class="event sat">09h00 – 17h00</span></div>
           <div class="day-cell"><div class="day-num">19</div><span class="event off">Pas de séance</span></div>
-
-          <div class="day-cell"><div class="day-num">20</div><span class="event">17h00 – 21h00</span></div>
-          <div class="day-cell"><div class="day-num">21</div><span class="event">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">20</div><span class="event zoom">17h00 – 21h00</span></div>
+          <div class="day-cell"><div class="day-num">21</div><span class="event zoom">17h00 – 21h00</span></div>
           <div class="day-cell"><div class="day-num">22</div><span class="event off">Fin de période</span></div>
           <div class="day-cell"><div class="day-num">23</div><span class="event off">Fin de période</span></div>
           <div class="day-cell"><div class="day-num">24</div><span class="event off">Fin de période</span></div>
@@ -188,7 +319,7 @@
           <li>Couper le micro lorsque vous ne prenez pas la parole</li>
           <li>Utiliser un nom complet identifiable sur Zoom</li>
           <li>Éviter les environnements bruyants</li>
-          <li>Préparer vos supports et documents avant la séance</li>
+          <li>Préparer vos documents avant la séance</li>
           <li>Signaler rapidement toute difficulté technique</li>
         </ul>
       </section>
@@ -199,11 +330,8 @@
           <li>Accès aux consignes complémentaires</li>
           <li>Dépôt des travaux finaux dans l’espace dédié</li>
           <li>Centralisation des ressources utiles</li>
-          <li>Suivi plus simple de votre progression</li>
+          <li>Suivi simple de votre progression</li>
         </ul>
-        <div class="info-box">
-          Une session d’accompagnement sera organisée pour faciliter la prise en main de l’espace Classroom.
-        </div>
       </section>
     </div>
   </main>
@@ -212,69 +340,97 @@
     <div class="footer-card">
       <h3 style="margin:0 0 8px;">Cabinet Global Expert</h3>
       <p>Support digital et accompagnement des participants au Certificat de Spécialisation SYSCOHADA – Comptes individuels.</p>
-      <p class="small">Veillez à conserver vos accès Zoom et Classroom pendant toute la durée de la formation.</p>
+      <p style="font-size:14px;">Veillez à conserver vos accès Zoom et Classroom pendant toute la durée de la formation.</p>
     </div>
   </footer>
 
   <script>
     (function(){
-      const nextTargets = [
-        new Date('2026-04-10T17:00:00'),
-        new Date('2026-04-11T09:00:00'),
-        new Date('2026-04-13T17:00:00'),
-        new Date('2026-04-14T17:00:00'),
-        new Date('2026-04-15T17:00:00'),
-        new Date('2026-04-16T17:00:00'),
-        new Date('2026-04-17T17:00:00'),
-        new Date('2026-04-18T09:00:00'),
+      const sessionTargets = [
         new Date('2026-04-20T17:00:00'),
         new Date('2026-04-21T17:00:00')
       ];
+      const examTarget = new Date('2026-05-02T00:00:00');
 
-      function getNextTarget(){
-        const now = new Date();
-        for(const target of nextTargets){
-          if(target.getTime() > now.getTime()) return target;
-        }
-        return null;
-      }
+      function setCountdown(ids, distance){
+        const d = document.getElementById(ids.days);
+        const h = document.getElementById(ids.hours);
+        const m = document.getElementById(ids.minutes);
+        const s = document.getElementById(ids.seconds);
+        if(!d || !h || !m || !s) return;
 
-      function updateCountdown(){
-        const target = getNextTarget();
-        const d = document.getElementById('days');
-        const h = document.getElementById('hours');
-        const m = document.getElementById('minutes');
-        const s = document.getElementById('seconds');
-        if(!target){
+        if(distance <= 0){
           d.textContent='00'; h.textContent='00'; m.textContent='00'; s.textContent='00';
           return;
         }
-        const now = new Date().getTime();
-        const distance = target.getTime() - now;
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const days = Math.floor(distance / (1000*60*60*24));
+        const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+        const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+        const seconds = Math.floor((distance % (1000*60)) / 1000);
+
         d.textContent = String(days).padStart(2,'0');
         h.textContent = String(hours).padStart(2,'0');
         m.textContent = String(minutes).padStart(2,'0');
         s.textContent = String(seconds).padStart(2,'0');
       }
 
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+      function nextSession(){
+        const now = new Date().getTime();
+        return sessionTargets.find(t => t.getTime() > now) || null;
+      }
+
+      function updateCountdowns(){
+        const now = new Date().getTime();
+        setCountdown({days:'exam-days',hours:'exam-hours',minutes:'exam-minutes',seconds:'exam-seconds'}, examTarget.getTime() - now);
+
+        const next = nextSession();
+        if(next){
+          setCountdown({days:'days',hours:'hours',minutes:'minutes',seconds:'seconds'}, next.getTime() - now);
+        } else {
+          setCountdown({days:'days',hours:'hours',minutes:'minutes',seconds:'seconds'}, 0);
+        }
+      }
+
+      let webcamStream = null;
+      const startBtn = document.getElementById('start-webcam');
+      const stopBtn = document.getElementById('stop-webcam');
+      const preview = document.getElementById('webcam-preview');
+      const status = document.getElementById('webcam-status');
+
+      async function startWebcam(){
+        try{
+          if(webcamStream){
+            status.textContent = 'La webcam fonctionne déjà.';
+            status.style.color = '#166534';
+            return;
+          }
+          webcamStream = await navigator.mediaDevices.getUserMedia({video:true,audio:false});
+          preview.srcObject = webcamStream;
+          status.textContent = 'Webcam active ✅ Vous pouvez confirmer que la caméra fonctionne.';
+          status.style.color = '#166534';
+        }catch(error){
+          status.textContent = 'Impossible d’accéder à la webcam. Vérifiez les permissions du navigateur.';
+          status.style.color = '#9a3412';
+        }
+      }
+
+      function stopWebcam(){
+        if(webcamStream){
+          webcamStream.getTracks().forEach(track => track.stop());
+          webcamStream = null;
+          preview.srcObject = null;
+          status.textContent = 'Caméra arrêtée.';
+          status.style.color = '#475569';
+        }
+      }
+
+      if(startBtn){ startBtn.addEventListener('click', startWebcam); }
+      if(stopBtn){ stopBtn.addEventListener('click', stopWebcam); }
+
+      updateCountdowns();
+      setInterval(updateCountdowns, 1000);
     })();
   </script>
-<div class="container">
-<div class="card">
-<h2>Support technique</h2>
-<p>Pour toute difficulté technique (accès, dépôt, connexion), vous pouvez contacter le support :</p>
-<ul>
-<li>Email : <strong>oscarkakpo@gmail.com</strong></li>
-</ul>
-<p>Merci de préciser votre nom, prénom et le problème rencontré pour un traitement rapide.</p>
-</div>
-</div>
-
 </body>
 </html>
