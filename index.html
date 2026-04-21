@@ -105,6 +105,28 @@
       .exam-card.span-4{grid-column:span 4}
       .exam-card.span-6{grid-column:span 6}
       .exam-card.span-12{grid-column:span 12}
+    .zoom-box{background:linear-gradient(135deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #dbeafe;border-radius:20px;padding:18px;margin-top:14px}
+    .zoom-box p{margin:6px 0}
+    .section-intro{margin-top:4px}
+    .exam-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
+    .exam-card{grid-column:span 12;background:#f8fbff;border:1px solid #dce9ff;border-radius:18px;padding:18px}
+    .exam-card h3{margin:0 0 8px;font-size:19px;color:#0a4ea1}
+    .exam-card h4{margin:0 0 10px;font-size:16px;color:#1e3a8a}
+    .classroom-focus{background:linear-gradient(135deg,#0a4ea1 0%,#0b6b8f 100%);color:#fff;border-color:transparent}
+    .classroom-focus h3,.classroom-focus p,.classroom-focus li{color:#fff}
+    .steps{margin:0;padding-left:20px}
+    .steps li{margin-bottom:8px}
+    .footer{padding:0 20px 50px}
+    .footer-card{max-width:1100px;margin:0 auto;background:#0f172a;color:#fff;border-radius:24px;padding:26px 24px}
+    .footer-card p{margin:6px 0;color:rgba(255,255,255,.84)}
+    .small{font-size:14px}
+    @media (min-width: 860px){
+      .card.span-7{grid-column:span 7}
+      .card.span-5{grid-column:span 5}
+      .card.span-6{grid-column:span 6}
+      .exam-card.span-6{grid-column:span 6}
+      .exam-card.span-4{grid-column:span 4}
+      .exam-card.span-8{grid-column:span 8}
     }
     @media (max-width:859px){
       .hero-grid{grid-template-columns:1fr}
@@ -279,6 +301,89 @@
               <li>N’attendez pas la dernière minute pour déposer votre fichier.</li>
               <li>Confirmez que le devoir est bien marqué « Remis ».</li>
               <li>Testez votre webcam avant l’examen.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="card span-12">
+        <h2>Examen blanc et guide de dépôt sur Classroom</h2>
+        <p class="muted section-intro">Préparez sereinement l’évaluation finale grâce à un cas pratique d’entraînement et à un guide clair pour le dépôt sur Classroom.</p>
+
+        <div class="exam-grid">
+          <article class="exam-card span-6">
+            <h3>Sujet blanc – Certificat SYSCOHADA</h3>
+            <h4>Cas pratique d’entraînement</h4>
+            <p><strong>Consigne générale :</strong> À partir des opérations ci-dessous, enregistrez les écritures au journal dans le respect du SYSCOHADA (comptes individuels), puis présentez les soldes des comptes concernés.</p>
+            <ul class="list">
+              <li>05/04 : Achat de fournitures de bureau pour 150&nbsp;000 FCFA, payé par banque.</li>
+              <li>08/04 : Vente de marchandises de 320&nbsp;000 FCFA à crédit au client KOUASSI.</li>
+              <li>10/04 : Encaissement partiel de 120&nbsp;000 FCFA du client KOUASSI.</li>
+              <li>12/04 : Paiement du loyer mensuel de 200&nbsp;000 FCFA en caisse.</li>
+            </ul>
+            <p><strong>Tâches à réaliser :</strong></p>
+            <ul class="list">
+              <li>Identifier les comptes à mouvementer pour chaque opération.</li>
+              <li>Passer les écritures comptables correspondantes.</li>
+              <li>Calculer le solde final des comptes Banque, Caisse et Client KOUASSI.</li>
+              <li>Rédiger une brève conclusion (3 à 5 lignes) sur la situation de trésorerie.</li>
+            </ul>
+            <p><strong>Livrable autorisé :</strong> PDF, Word ou copie manuscrite bien scannée.</p>
+            <p><strong>Dépôt :</strong> le devoir s’envoie directement sur Classroom.</p>
+          </article>
+
+          <article class="exam-card classroom-focus span-6">
+            <h3>Rejoindre la classe Google Classroom</h3>
+            <p>Accédez à la classe via ce lien :</p>
+            <p><a href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer" style="font-weight:700;text-decoration:underline;">https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy</a></p>
+            <ul class="list">
+              <li>Connectez-vous avec un <strong>compte Gmail</strong>.</li>
+              <li>Vérifiez que vous avez bien rejoint la classe <strong>avant l’examen</strong>.</li>
+            </ul>
+          </article>
+
+          <article class="exam-card span-4">
+            <h3>Vérification du compte Gmail</h3>
+            <p>Un compte Gmail saturé peut empêcher :</p>
+            <ul class="list">
+              <li>L’accès à Classroom,</li>
+              <li>L’ajout de fichiers,</li>
+              <li>Le dépôt du devoir.</li>
+            </ul>
+            <p>Assurez-vous d’utiliser un compte Gmail actif avec un espace disponible suffisant.</p>
+            <p>Si besoin : supprimez des emails, videz la corbeille et libérez de l’espace dans Google Drive.</p>
+          </article>
+
+          <article class="exam-card span-8">
+            <h3>Comment déposer son devoir sur Classroom ?</h3>
+            <ol class="steps">
+              <li>Ouvrir Classroom.</li>
+              <li>Cliquer sur le devoir concerné.</li>
+              <li>Cliquer sur « Ajouter ou créer ».</li>
+              <li>Importer le fichier.</li>
+              <li>Vérifier que le bon document est joint.</li>
+              <li>Cliquer sur « Remettre ».</li>
+              <li>Vérifier que le statut affiché est bien « Remis ».</li>
+            </ol>
+          </article>
+
+          <article class="exam-card span-6">
+            <h3>Examen sous surveillance</h3>
+            <ul class="list">
+              <li>L’examen final est réalisé sous surveillance.</li>
+              <li>La webcam doit rester active pendant toute la durée de l’épreuve.</li>
+              <li>Testez votre webcam avant l’examen pour éviter tout blocage.</li>
+            </ul>
+            <p><a href="https://oscarkakpo-create.github.io/ifrs-guide/" target="_blank" rel="noopener noreferrer"><strong>Lancer le test webcam</strong></a></p>
+          </article>
+
+          <article class="exam-card span-6">
+            <h3>Conseils avant l’examen</h3>
+            <ul class="list">
+              <li>Rejoindre la classe avant le jour J.</li>
+              <li>Tester la webcam, le micro et la connexion.</li>
+              <li>Préparer le fichier dans le bon format.</li>
+              <li>Ne pas attendre la dernière minute pour le dépôt.</li>
             </ul>
           </article>
         </div>
