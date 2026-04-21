@@ -10,6 +10,7 @@
     body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(180deg,#f5f8fc 0%,#eef3f9 100%);color:#1e293b;line-height:1.6}
     a{color:inherit}
     .hero{background:linear-gradient(135deg,#0a4ea1 0%,#0b6b8f 100%);color:#fff;padding:56px 20px 42px}
+    .deploy-test-banner{background:#7f1d1d;color:#fff;text-align:center;font-weight:800;letter-spacing:.3px;padding:10px 14px;font-size:14px}
     .wrap{max-width:1100px;margin:0 auto}
     .eyebrow{display:inline-block;padding:8px 14px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.08);font-size:13px;font-weight:600;letter-spacing:.2px}
     h1{margin:18px 0 12px;font-size:clamp(30px,5vw,54px);line-height:1.08}
@@ -50,6 +51,15 @@
     .event.off{background:#f8fafc;color:#64748b;border-color:#e2e8f0}
     .zoom-box{background:linear-gradient(135deg,#f8fbff 0%,#eef6ff 100%);border:1px solid #dbeafe;border-radius:20px;padding:18px;margin-top:14px}
     .zoom-box p{margin:6px 0}
+    .section-intro{margin-top:4px}
+    .exam-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
+    .exam-card{grid-column:span 12;background:#f8fbff;border:1px solid #dce9ff;border-radius:18px;padding:18px}
+    .exam-card h3{margin:0 0 8px;font-size:19px;color:#0a4ea1}
+    .exam-card h4{margin:0 0 10px;font-size:16px;color:#1e3a8a}
+    .classroom-focus{background:linear-gradient(135deg,#0a4ea1 0%,#0b6b8f 100%);color:#fff;border-color:transparent}
+    .classroom-focus h3,.classroom-focus p,.classroom-focus li{color:#fff}
+    .steps{margin:0;padding-left:20px}
+    .steps li{margin-bottom:8px}
     .footer{padding:0 20px 50px}
     .footer-card{max-width:1100px;margin:0 auto;background:#0f172a;color:#fff;border-radius:24px;padding:26px 24px}
     .footer-card p{margin:6px 0;color:rgba(255,255,255,.84)}
@@ -58,6 +68,9 @@
       .card.span-7{grid-column:span 7}
       .card.span-5{grid-column:span 5}
       .card.span-6{grid-column:span 6}
+      .exam-card.span-6{grid-column:span 6}
+      .exam-card.span-4{grid-column:span 4}
+      .exam-card.span-8{grid-column:span 8}
     }
     @media (max-width: 859px){
       .hero-grid,.two-col{grid-template-columns:1fr}
@@ -75,6 +88,7 @@
   </style>
 </head>
 <body>
+  <div class="deploy-test-banner">TEST DÉPLOI — Mise à jour visible du site (guide visuel + nouveau décompte examen du 2 mai 2026)</div>
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
@@ -93,6 +107,14 @@
           <div class="count-item"><strong id="hours">--</strong><span>Heures</span></div>
           <div class="count-item"><strong id="minutes">--</strong><span>Minutes</span></div>
           <div class="count-item"><strong id="seconds">--</strong><span>Secondes</span></div>
+        </div>
+
+        <div class="small" style="margin-top:14px;opacity:.9;font-weight:700;letter-spacing:.2px;">Compte à rebours avant l’examen final du 2 mai 2026</div>
+        <div id="exam-countdown" class="countdown" aria-live="polite">
+          <div class="count-item"><strong id="exam-days">--</strong><span>Jours</span></div>
+          <div class="count-item"><strong id="exam-hours">--</strong><span>Heures</span></div>
+          <div class="count-item"><strong id="exam-minutes">--</strong><span>Minutes</span></div>
+          <div class="count-item"><strong id="exam-seconds">--</strong><span>Secondes</span></div>
         </div>
         <div class="badge-row">
           <span class="badge">Lun–Ven : 17h00–21h00</span>
@@ -144,6 +166,67 @@
         </div>
       </section>
 
+      <section class="card span-12">
+        <h2>Guide visuel – Déroulement de l’examen et dépôt du devoir</h2>
+        <p class="muted section-intro">Suivez ces étapes pour télécharger le sujet, composer et déposer votre copie correctement.</p>
+
+        <div class="exam-grid" aria-label="Guide visuel du dépôt sur Classroom">
+          <article class="exam-card span-4 step-card classroom-focus">
+            <span class="step-badge" aria-hidden="true">1</span>
+            <div class="step-icon" aria-hidden="true">🔐</div>
+            <h3>Accéder à Classroom</h3>
+            <p>Connectez-vous avec votre compte Gmail puis rejoignez la classe avant l’épreuve.</p>
+            <p><a href="https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy" target="_blank" rel="noopener noreferrer" style="font-weight:700;text-decoration:underline;">https://classroom.google.com/c/ODU5MTY4MzY5MDUx?cjc=kr6vwgpy</a></p>
+          </article>
+
+          <article class="exam-card span-4 step-card">
+            <span class="step-badge" aria-hidden="true">2</span>
+            <div class="step-icon" aria-hidden="true">⬇️</div>
+            <h3>Télécharger le sujet</h3>
+            <p>Dans l’onglet « Travaux », ouvrez le devoir puis téléchargez le sujet sur votre ordinateur.</p>
+          </article>
+
+          <article class="exam-card span-4 step-card">
+            <span class="step-badge" aria-hidden="true">3</span>
+            <div class="step-icon" aria-hidden="true">✍️</div>
+            <h3>Composer</h3>
+            <p>Rédigez sur ordinateur (Word/PDF) ou en manuscrit lisible, puis faites un scan propre (appli scanner recommandée).</p>
+          </article>
+
+          <article class="exam-card span-4 step-card">
+            <span class="step-badge" aria-hidden="true">4</span>
+            <div class="step-icon" aria-hidden="true">📄</div>
+            <h3>Préparer le fichier</h3>
+            <p>Convertissez en PDF si possible, vérifiez la lisibilité puis nommez correctement le document.</p>
+          </article>
+
+          <article class="exam-card span-4 step-card critical-step">
+            <span class="step-badge" aria-hidden="true">5</span>
+            <div class="step-icon" aria-hidden="true">📤</div>
+            <h3>Déposer le devoir</h3>
+            <p>Cliquez « Ajouter ou créer », importez votre fichier puis cliquez « Remettre ».</p>
+            <p><strong>Contrôle final :</strong> le statut doit afficher « Remis ».</p>
+          </article>
+
+          <article class="exam-card span-4 step-card">
+            <span class="step-badge" aria-hidden="true">6</span>
+            <div class="step-icon" aria-hidden="true">📷</div>
+            <h3>Surveillance</h3>
+            <p>Webcam obligatoire pendant toute l’épreuve, avec un environnement calme et une connexion stable.</p>
+          </article>
+
+          <article class="exam-card span-12 alert-card">
+            <h3>Points de vigilance</h3>
+            <ul class="list compact-list">
+              <li>Votre Gmail doit disposer d’un espace suffisant.</li>
+              <li>N’attendez pas la dernière minute pour déposer.</li>
+              <li>Confirmez toujours le statut « Remis ».</li>
+              <li>Testez votre webcam avant l’examen.</li>
+            </ul>
+            <p><a href="https://oscarkakpo-create.github.io/ifrs-guide/" target="_blank" rel="noopener noreferrer"><strong>Lancer le test webcam</strong></a></p>
+          </article>
+        </div>
+      </section>
       <section class="card span-12">
         <h2>Calendrier illustré des rencontres</h2>
         <p class="muted">Organisation des séances sur la période du <strong>10 au 21 avril 2026</strong>.</p>
@@ -239,18 +322,18 @@
         return null;
       }
 
-      function updateCountdown(){
-        const target = getNextTarget();
-        const d = document.getElementById('days');
-        const h = document.getElementById('hours');
-        const m = document.getElementById('minutes');
-        const s = document.getElementById('seconds');
-        if(!target){
+      function setCountdownValues(prefix, distance){
+        const d = document.getElementById(prefix ? `${prefix}-days` : 'days');
+        const h = document.getElementById(prefix ? `${prefix}-hours` : 'hours');
+        const m = document.getElementById(prefix ? `${prefix}-minutes` : 'minutes');
+        const s = document.getElementById(prefix ? `${prefix}-seconds` : 'seconds');
+        if(!d || !h || !m || !s) return;
+
+        if(distance <= 0){
           d.textContent='00'; h.textContent='00'; m.textContent='00'; s.textContent='00';
           return;
         }
-        const now = new Date().getTime();
-        const distance = target.getTime() - now;
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -261,8 +344,28 @@
         s.textContent = String(seconds).padStart(2,'0');
       }
 
+      function updateCountdown(){
+        const target = getNextTarget();
+        const now = new Date().getTime();
+        if(!target){
+          setCountdownValues('', 0);
+        } else {
+          setCountdownValues('', target.getTime() - now);
+        }
+      }
+
+      function updateExamCountdown(){
+        const examTarget = new Date('2026-05-02T09:00:00');
+        const now = new Date().getTime();
+        setCountdownValues('exam', examTarget.getTime() - now);
+      }
+
       updateCountdown();
-      setInterval(updateCountdown, 1000);
+      updateExamCountdown();
+      setInterval(function(){
+        updateCountdown();
+        updateExamCountdown();
+      }, 1000);
     })();
   </script>
 <div class="container">
